@@ -1,0 +1,14 @@
+{
+  "name": "formula1",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run start:server && npm run serve",
+    "serve": "cd my-project && npm run serve",
+    "start:server": "cd server && npm start"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
+  }
+}

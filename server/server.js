@@ -22,6 +22,8 @@ connection.connect(function(error) {
 // importDataFromAPI to trigger API data import
 importDataFromAPI(connection);
 
+// Serve the Vue.js frontend
+app.use(express.static(path.join(__dirname, '../my-project/dist')));
 //cors to connect Frontend and Backend
 app.use(cors());
 
