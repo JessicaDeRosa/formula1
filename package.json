@@ -1,14 +1,18 @@
 {
   "name": "formula1",
   "version": "1.0.0",
+  "description": "Formula 1 app",
+  "main": "index.js",
   "scripts": {
-    "start": "npm run start:server && npm run serve",
-    "serve": "cd my-project && npm run serve",
-    "start:server": "cd server && npm start"
+    "start": "concurrently \"cd my-project && npm run serve\" \"cd server && node server.js\""
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mysql2": "^2.2.5"
+    "server": "^1.0.38"
+  },
+  "devDependencies": {
+    "@vue/cli": "^5.0.8",
+    "concurrently": "^8.0.1"
   }
 }

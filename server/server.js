@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const mysql = require('mysql');
 const { importDataFromAPI } = require('./importData');
@@ -73,6 +74,20 @@ app.get('/drivers', (req, res) => {
             return;
         }
         res.json(results);
+        console.log(results);
+    });
+});
+
+app.delete('/drivers/:permanent_number', (req, res) => {
+    const permanent_number = parseInt(req.params.permanent_number);
+    const sql = 'DELETE FROM drivers WHERE permanent_number = ?';
+    connection.query(sql, [permanent_number], (err, results) => {
+        if (err) {
+            console.error('Error deleting driver data: ', err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.send(`Driver with ID ${permanent_number} has been deleted successfully`);
         console.log(results);
     });
 });
